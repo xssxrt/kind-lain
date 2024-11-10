@@ -13,8 +13,9 @@ Currently running a few services on VMs and also have a Kubernetes cluster on a 
 [Kustomize](https://kustomize.io/)
 [SOPS](https://getsops.io/)
 
-## Bootstrap command
-```sh
+## Commands
+### Bootstrap command
+```
 flux bootstrap github \
 --token-auth \
 --owner=xssxrt \
@@ -26,4 +27,10 @@ flux bootstrap github \
 --repository=kind-lain \
 --path=clusters/staging
 ```
+
+### SOPS - show diffs in cleartext w/ git
+```
+git config diff.sopsdiffer.textconv "sops decrypt"
+```
+NB: `.gitattributes` needs to be updated if a different serialzation langauge also needs to have secrets.
 
