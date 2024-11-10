@@ -2,16 +2,26 @@
 
 ## Motivation
 Prototype a homelab that is using GitOps in kind w/ Flux.
+
 Image automation 
+
 Currently running a few services on VMs and also have a Kubernetes cluster on a single beefy client running Proxmox.
+
+Considering hardware options for bare metal nodes but will probably just grab more thin clients
 
 ## Tech
 [kind](https://kind.sigs.k8s.io/)
+
 [FluxCD](https://fluxcd.io/)
+
 [Helm](https://helm.sh/)
+
 [Github Actions](https://github.com/features/actions/)
+
 [Kustomize](https://kustomize.io/)
+
 [SOPS](https://getsops.io/)
+
 
 ## Commands
 ### Bootstrap command
