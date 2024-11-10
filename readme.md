@@ -9,6 +9,8 @@ Currently running a few services on VMs and also have a Kubernetes cluster on a 
 
 Considering hardware options for bare metal nodes but will probably just grab more thin clients
 
+Cookbook or reference for personal use
+
 ## Tech
 [kind](https://kind.sigs.k8s.io/)
 
