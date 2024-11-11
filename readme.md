@@ -46,3 +46,16 @@ git config diff.sopsdiffer.textconv "sops decrypt"
 ```
 NB: `.gitattributes` needs to be updated if a different serialzation langauge also needs to have secrets.
 
+### Kind Load Balancer
+Requires their `cloud-provider-kind` binary.
+
+```
+Install with:
+go install sigs.k8s.io/cloud-provider-kind@latest
+
+Enter nix shell, the flake has go and also adds go binaries to PATH.
+
+Run with:
+cloud-provider-kind
+```
+
