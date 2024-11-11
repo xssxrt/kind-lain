@@ -9,6 +9,6 @@ spec:
   selector:
     app: pihole
   ports:
-    - port: 1337
+    - port: 80
       targetPort: 80
 

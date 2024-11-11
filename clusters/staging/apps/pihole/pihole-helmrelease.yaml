@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: pihole
-  interval: 1m
+  interval: 1m0s
   targetNamespace: pihole
   values:
     persistentVolumeClaim:
@@ -21,3 +21,4 @@ spec:
       type: LoadBalancer
     serviceWeb:
       type: LoadBalancer
+
