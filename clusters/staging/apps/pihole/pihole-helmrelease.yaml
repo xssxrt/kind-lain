@@ -14,3 +14,10 @@ spec:
         name: pihole
   interval: 1m0s
   targetNamespace: pihole
+  values:
+    persistentVolumeClaim:
+      enabled: true
+    serviceDns:
+      type: LoadBalancer
+    serviceWeb:
+      type: LoadBalancer
