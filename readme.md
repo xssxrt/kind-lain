@@ -58,4 +58,14 @@ Enter nix shell, the flake has go and also adds go binaries to PATH.
 Run with:
 cloud-provider-kind
 ```
+### Debugging TCP/UDP
+#### UDP
+```
+nc -vz -u <IP> <PORT>
+```
+
+#### TCP
+```
+telnet <IP>:<PORT>
+```
 
