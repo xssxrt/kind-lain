@@ -1,6 +1,7 @@
 name: Demo building image in CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
