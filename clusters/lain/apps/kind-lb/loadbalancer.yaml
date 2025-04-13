@@ -1,0 +1,44 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: foo-app
+  labels:
+    app: http-echo
+  namespace: default
+spec:
+  containers:
+    - name: foo-app
+      image: hashicorp/http-echo:0.2.3
+      args:
+        - "-text=foo"
+        - "-listen=:8080"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bar-app
+  labels:
+    app: http-echo
+  namespace: default
+spec:
+  containers:
+    - name: bar-app
+      image: hashicorp/http-echo:0.2.3
+      args:
+        - "-text=bar"
+        - "-listen=:8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: foo-service
+  namespace: kind-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: http-echo
+  ports:
+    - port: 5678
+      targetPort: 8080
+

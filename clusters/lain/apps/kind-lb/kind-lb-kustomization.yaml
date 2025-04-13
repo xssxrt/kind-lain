@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: kind-lb-namespace
+  namespace: default
+resources:
+- ./namespace.yaml
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: loadbalancer
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./clusters/lain/apps/kind-lb/
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  targetNamespace: kind-lb
+
