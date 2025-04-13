@@ -34,8 +34,8 @@ jobs:
         id: push
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: ./clusters/staging/apps/docker-demo
-          file: ./clusters/staging/apps/docker-demo/Dockerfile
+          context: ./clusters/lain/apps/docker-demo
+          file: ./clusters/lain/apps/docker-demo/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}/demo-nginx:build-${{ steps.timestamp.outputs.TIMESTAMP }}
           labels: demo-image
