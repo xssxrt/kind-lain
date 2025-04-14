@@ -1,0 +1,43 @@
+name: Starlette demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - "clusters/lain/apps/starlette-demo/**"
+      - "!clusters/lain/apps/starlette-demo/readme.md"
+
+jobs:
+  push_to_registry:
+    name: Build and push image to GHCR
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      attestations: write
+      id-token: write
+    steps:
+      - name: Get timestamp
+        id: timestamp
+        run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_OUTPUT
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: ./clusters/lain/apps/starlette-demo
+          file: ./clusters/lain/apps/starlette-demo/Dockerfile
+          push: true
+          tags: ghcr.io/${{ github.repository }}/demo-starlette:build-${{ steps.timestamp.outputs.TIMESTAMP }}
+          labels: starlette-image
+

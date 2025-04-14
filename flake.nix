@@ -19,6 +19,10 @@
             fluxcd
             go
             busybox
+            python313
+            uv
+            nodejs_23
+            pyright
           ];
           
           shellHook = ''
