@@ -1,0 +1,8 @@
+tag := "star:dev"
+alias b := build
+alias r := run
+build:
+    docker build . -t {{tag}}
+
+run:
+    docker run -p 8000:8000 -e MESSAGE="HAHAHHAHAH" {{tag}}

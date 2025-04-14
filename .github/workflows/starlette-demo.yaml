@@ -6,7 +6,7 @@ on:
     branches: [ main ]
     paths:
       - "clusters/lain/apps/starlette-demo/**"
-      - "!clusters/lain/apps/starlette-demo/readme.md"
+      - "!clusters/lain/apps/starlette-demo/justfile"
 
 jobs:
   push_to_registry:
