@@ -1,4 +1,4 @@
-tag := "star:dev"
+tag := "ghcr.io/xssxrt/kind-lain/demo-starlette:latest"
 alias b := build
 alias r := run
 build:
@@ -6,3 +6,7 @@ build:
 
 run:
     docker run -p 8000:8000 -e MESSAGE="HAHAHHAHAH" {{tag}}
+
+load:
+    kind load docker-image {{tag}} --name=prototype
+

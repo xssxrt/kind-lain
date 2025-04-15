@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "app.name" . }}
+  labels:
+    app: {{ include "app.name" . }}
+spec:
+  replicas: {{ include "app.replicas" . }}
+  selector:
+    matchLabels:
+      app: {{ include "app.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "app.name" . }}
+    spec:
+      containers:
+        - name: {{ include "app.name" . }}
+          image: {{ include "app.image.name" . }}:{{ include "app.image.tag" . }}
+          imagePullPolicy: Never
+

@@ -15,7 +15,7 @@
             just
             kind
             kubectl
-            helm
+            kubernetes-helm
             fluxcd
             go
             busybox

@@ -5,7 +5,7 @@ import os
 
 MESSAGE = os.environ.get("MESSAGE")
 if not MESSAGE:
-    MESSAGE = "MESSAGE was not set"
+    MESSAGE = "MESSAGE was not set!"
 
 async def message(request) -> None:
     return JSONResponse({"message": MESSAGE})
